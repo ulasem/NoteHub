@@ -4,7 +4,18 @@ import { NoteTag } from '@/types/note';
 import css from './SidebarNotes.module.css';
 
 function SideBarNotes() {
-  const tags: NoteTag[] = ['Work', 'Todo', 'Personal', 'Meeting', 'Shopping'];
+  const tags: NoteTag[] = [
+    'Work',
+    'Todo',
+    'Personal',
+    'Meeting',
+    'Shopping',
+    'Ideas',
+    'Travel',
+    'Finance',
+    'Health',
+    'Important',
+  ];
 
   return (
     <ul className={css.menuList}>

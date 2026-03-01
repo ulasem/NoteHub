@@ -2,11 +2,11 @@
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
-import { createNote } from '@/lib/api';
-import { useNoteDraftStore } from '@/lib/stores/noteStore';
+import { createNote, CreateNotePayload } from '@/lib/api/clientApi';
+import { useNoteDraftStore } from '@/lib/store/noteStore';
+import { NoteTag } from '@/types/note';
 
 import css from './NoteForm.module.css';
-import { NoteTag } from '@/types/note';
 
 function NoteForm() {
   const router = useRouter();
@@ -25,7 +25,7 @@ function NoteForm() {
 
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: createNote,
+    mutationFn: (newNote: CreateNotePayload) => createNote(newNote),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notes'] });
       clearDraft();
@@ -89,7 +89,13 @@ function NoteForm() {
           <option value="Personal">Personal</option>
           <option value="Meeting">Meeting</option>
           <option value="Shopping">Shopping</option>
+          <option value="Ideas">Ideas</option>
+          <option value="Travel">Travel</option>
+          <option value="Finance">Finance</option>
+          <option value="Health">Health</option>
+          <option value="Important">Important</option>
         </select>
+        <span className={css.error} />
       </div>
 
       <div className={css.actions}>

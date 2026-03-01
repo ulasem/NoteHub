@@ -1,6 +1,8 @@
+'use client';
+
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import type { Note } from '@/types/note';
-import { deleteNote } from '@/lib/api';
+import { deleteNote } from '@/lib/api/clientApi';
 import Link from 'next/link';
 
 import css from './NoteList.module.css';
@@ -17,7 +19,14 @@ function NoteList({ notes }: NoteListProps) {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['notes'] });
     },
+    onError: error => {
+      console.error('Error deleting note:', error);
+    },
   });
+
+  if (!notes || notes.length === 0) {
+    return <p className={css.empty}>No notes found.</p>;
+  }
 
   return (
     <ul className={css.list}>
