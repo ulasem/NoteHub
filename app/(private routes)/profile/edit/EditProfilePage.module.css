@@ -2,8 +2,8 @@
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 32px;
+  align-items: flex-start;
+  padding: 16px 12px;
 }
 
 .profileCard {
@@ -12,15 +12,15 @@
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  padding: 24px;
+  padding: 16px;
   text-align: left;
 }
 
 .formTitle {
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 700;
   color: #1a1a1a;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   text-align: left;
 }
 
@@ -28,16 +28,19 @@
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  margin: 0 auto 24px auto;
+  margin: 0 auto 16px auto;
+  width: 90px;
+  height: 90px;
 }
 
 .profileInfo {
-  font-size: 18px;
+  font-size: 14px;
   color: #333;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   align-items: flex-start;
+  width: 100%;
 }
 
 .usernameWrapper {
@@ -48,17 +51,21 @@
 
 .usernameWrapper label {
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: #222;
+  font-size: 14px;
+  word-break: break-word;
 }
 
 .input {
-  padding: 10px 12px;
-  font-size: 16px;
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
   border: 1.5px solid #ccc;
   border-radius: 8px;
   outline-offset: 2px;
   transition: border-color 0.2s ease;
+  box-sizing: border-box;
 }
 
 .input:focus {
@@ -69,11 +76,21 @@
 .profileInfo p {
   margin: 0;
   font-weight: 500;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  width: 100%;
 }
 
 .saveButton {
-  padding: 12px 24px;
-  font-size: 18px;
+  padding: 10px 20px;
+  font-size: 15px;
   font-weight: 600;
   background-color: #333;
   color: white;
@@ -81,7 +98,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  align-self: stretch;
+  width: 100%;
   text-align: center;
 }
 
@@ -90,8 +107,8 @@
 }
 
 .cancelButton {
-  padding: 8px 16px;
-  font-size: 16px;
+  padding: 10px 16px;
+  font-size: 15px;
   background-color: transparent;
   color: #6c757d;
   border: 2px solid #6c757d;
@@ -100,14 +117,125 @@
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
+  width: 100%;
+  text-align: center;
 }
 
 .cancelButton:hover {
   background-color: #6c757d;
   color: white;
 }
-.actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
+
+.error {
+  color: #e53e3e;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 375px) {
+  .mainContent {
+    padding: 20px 16px;
+  }
+
+  .profileCard {
+    padding: 20px;
+  }
+
+  .formTitle {
+    font-size: 24px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profileInfo {
+    font-size: 15px;
+  }
+
+  .usernameWrapper label {
+    font-size: 15px;
+  }
+
+  .input {
+    font-size: 15px;
+    padding: 9px 11px;
+  }
+
+  .profileInfo p {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mainContent {
+    align-items: center;
+    padding: 32px;
+  }
+
+  .profileCard {
+    padding: 24px;
+  }
+
+  .formTitle {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 24px;
+  }
+
+  .profileInfo {
+    font-size: 16px;
+    gap: 16px;
+  }
+
+  .usernameWrapper label {
+    font-size: 16px;
+  }
+
+  .input {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  .profileInfo p {
+    font-size: 16px;
+  }
+
+  .actions {
+    flex-direction: row;
+    margin-top: 20px;
+  }
+
+  .saveButton {
+    width: auto;
+    padding: 12px 24px;
+    font-size: 18px;
+    align-self: stretch;
+  }
+
+  .cancelButton {
+    width: auto;
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .formTitle {
+    font-size: 32px;
+  }
+
+  .profileInfo {
+    font-size: 18px;
+  }
+
+  .profileInfo p {
+    font-size: 18px;
+  }
 }
