@@ -48,7 +48,7 @@ function NotesByTagClient({ tag }: NotesByTagClientProps) {
         )}
 
         <Link href="/notes/action/create" className={css.button}>
-          Create note +
+          Note+
         </Link>
       </header>
 
